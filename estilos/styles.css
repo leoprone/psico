@@ -1,0 +1,641 @@
+
+  /* ********** Reset ********** */
+  html {
+    box-sizing: border-box;
+    font-family: var(--font);
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+  
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+  }
+  
+  body {
+    margin: 0;
+   overflow-x: hidden;
+    color: var(--text-color);
+    background-color: rgb(2, 2, 13);    
+    color: aliceblue;
+    font-size: 1.2rem;
+  }
+  
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: all 0.5s ease-out;
+  }
+  
+   a:hover{
+    opacity: 0.65;
+    
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 1.35rem;
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  h4 {
+    margin: 0;
+    font-size: 0.75rem;
+  }
+  
+  h5 {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  h6 {
+    margin: 0;
+    font-size: 0.4rem;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+
+li{
+    list-style: none;
+    padding: 0.5rem 0;
+}
+
+
+
+
+  
+      /* ********** Menu ********** */
+      .menu-btn {
+        /*outline: thin solid var(--first-color);*/
+        border: 0;
+        cursor: pointer;
+        background-color: rgb(21, 21, 21, 0);
+        margin-left: 75%;
+        
+      
+      }
+      
+      .menu-btn svg {
+        fill: var(--second-color);
+          
+      }
+      
+      .menu {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(5, 5, 5, 0.75);
+       
+        opacity: 0;  /*solo se verá cuando sea activo*/
+        pointer-events: none;
+        transition: opacity 0.8s ease;
+        z-index: -1;
+      }
+      
+      .menu.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      
+      .menu a {
+        padding: 1rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: var(--first-color);
+      }
+      
+      .menu a:hover {
+        color: var(--white-color);
+        /*background-color: var(--second-color);*/
+        font-size: 1.5rem;
+      }
+
+      .none {
+        display: none;
+      }
+     
+      
+      @media screen and (min-width: 1024px) {
+        
+        
+        
+        .menu-btn {
+          display: none;
+        }
+      
+        .menu {
+          position: sticky;
+          width: auto; /*que el ancho se adapte al nª enlaces que tenga*/
+          flex-direction: row;
+          opacity: 1;
+          pointer-events: auto;
+          top: 0;
+          
+          z-index: 0; /*(lo puse yo)*/
+        }
+      
+        .menu a {
+            font-size: 1.2rem;
+          padding: 0 0.6rem;
+          color: var(--first-color);
+          
+        }
+      
+        .menu a:last-child { /*para igualar los paddings del último enlace
+          con el del iz del logo*/
+          padding-right: 0;
+          margin-right: 1rem;
+        }
+      
+        .menu a:hover {
+          background-color: transparent;
+          font-size: 1.2rem;
+          
+        }
+      }
+      
+
+
+/*FOOTER*/
+
+
+.footer {
+    /*margin-bottom: var(--header-height); /*para que se vea en mobile y no 
+    lo tape el header */
+    padding: 0.5rem;
+    text-align: center;
+    color: var(--white-color);
+    height: 10vh;
+    background-color: rgb(143, 142, 142);
+  }
+  
+  .footer a{
+    color: rgb(37, 36, 36);
+    text-decoration: none;
+  }
+  
+
+  
+
+/*HEADER*/
+
+
+.header {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    padding: 1rem 2rem;
+    
+    width: 100%;
+    height: var(--header-height);
+    
+  }
+  
+  .header > .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+  }
+  
+
+
+
+
+
+
+  /*Media query versión desktop*/
+
+  @media screen and (min-width: 1024px) {
+
+    
+  
+    .footer {
+      margin-bottom: 0; /*que el footer quede abajo de nuevo, ya que en
+      desktop no está el header abajo*/
+    }
+  
+    .header {
+      position: sticky; /*no tapa el sig elem, como sí lo hace fixed*/
+      top: 0;
+      
+      padding: 0.5rem;
+      height: calc(var(--header-height) - 0.2rem);
+    }
+
+    .menu {
+        background-color: rgb(211, 22, 22, 0);
+    }
+  
+  }
+
+
+  /*ESPECÍFICOS DEL SITIO*/
+
+.arrow{
+    background-color: rgb(0, 255, 195);
+    width: 30px;
+    height: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    clip-path: polygon(35% 0%, 65% 0%, 65% 80%, 100% 80%, 50% 100%, 0% 80%, 35% 80%);
+    animation: titilar 2s ease-in-out infinite;
+}
+
+
+.circle{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    font-size: 0.9rem;
+    border-radius: 50%;
+    background-color: yellow;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: rgb(118, 0, 0);
+    font-weight: bold;
+}
+
+.rectangulo1{
+    background-color: rgb(118, 0, 0);
+    width: 300px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.rectangulo2{
+    background-color: rgb(118, 0, 0);
+    width: 300px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.rectangulo3{
+    background-color: rgb(118, 0, 0);
+    width: 300px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.rectangulo4{
+    background-color: rgb(118, 0, 0);
+    width: 300px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+
+
+  h1{
+    
+    padding: 20px 0;
+    text-align: center;
+    color: rgb(144, 34, 34);
+    background-color: rgb(1, 1, 29);
+  }
+
+ h2{
+    padding: 8px;
+    text-align: center;
+    color: red;
+    width: 50%;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    background-color: rgb(91, 162, 223);
+ }
+
+ h3{
+    text-align: center;
+    color: aqua;
+    font-size: 1.2rem;
+ }
+
+.destinatarios{
+    
+   padding: 0.5rem 2rem 0.5rem 2rem;
+    background-color: rgb(20, 7, 33);
+}
+
+.destinatarios li{
+    text-decoration: none;
+    list-style: none;
+    font-style: italic;
+    margin: 1rem 0;
+}
+
+
+
+
+
+/*ETAPAS*/
+
+
+@keyframes abrir-tapa{
+    0%{
+      transform-origin: 0 0;
+       transform: perspective(2000px) rotateY(0deg);
+    }
+    100%{
+     transform-origin: 0% 0%;
+     transform: perspective(2000px) rotateY(-87deg);
+  }
+       }
+  
+       @keyframes titilar{
+        0%{
+         
+           transform: scale(1);
+        }
+        50%{
+         
+         transform: scale(1.3);
+      }
+      100%{
+         
+        transform: scale(1);
+     }
+        }
+    
+
+
+.container-etapa{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    width: 310px;
+    height: auto;
+    font-size: 0.96rem;
+    background-color: rgb(205, 227, 227);
+    position: relative;
+}
+
+/*etapa 1*/
+
+.etapa1{
+    background-color: blueviolet;
+    color: aliceblue;
+    width: 310px;
+    height: auto;
+
+    padding: 0.5rem 0rem 0.5rem 0rem;
+
+}
+
+.etapa1 li{
+    text-align: center;
+    color: rgb(255, 255, 255);
+   padding-right: 2rem;
+}
+
+
+
+
+.tapa1{
+    background-color: aqua;
+    position: absolute;
+    height: 697px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    animation: abrir-tapa 3s ease-in-out both;
+    animation-play-state: paused;
+
+}
+
+
+.btn-abrir1{
+    padding: 0 3rem;
+    background-color: rgba(224, 9, 9, 0);
+    border: 0em;
+    height: 100px;
+    width: 310px;
+    color: rgb(118, 0, 0);
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: titilar 2s ease-in-out infinite;
+}
+
+
+/*etapa 2*/
+
+
+.etapa2{
+    background-color: blueviolet;
+    color: aliceblue;
+    width: 310px;
+    height: auto;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+}
+
+.tapa2{
+    background-color: aqua;
+    position: absolute;
+    height: 398px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    animation: abrir-tapa 3s ease-in-out both;
+    animation-play-state: paused;
+
+}
+
+
+.btn-abrir2{
+    padding: 0 3rem;
+    background-color: rgba(224, 9, 9, 0);
+    border: 0em;
+    height: 100px;
+    width: 310px;
+    color: rgb(118, 0, 0);
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: titilar 2s ease-in-out infinite;
+}
+
+
+
+/*etapa 3*/
+
+
+.etapa3{
+    background-color: blueviolet;
+    color: aliceblue;
+    width: 310px;
+    height: auto;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+}
+
+
+
+.tapa3{
+    background-color: aqua;
+    position: absolute;
+    height: 422px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    animation: abrir-tapa 3s ease-in-out both;
+    animation-play-state: paused;
+
+}
+
+
+.btn-abrir3{
+    padding: 0 3rem;
+    background-color: rgba(224, 9, 9, 0);
+    border: 0em;
+    height: 100px;
+    width: 310px;
+    color: rgb(118, 0, 0);
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: titilar 2s ease-in-out infinite;
+}
+
+
+
+
+
+
+
+
+/*etapa 4*/
+
+
+.etapa4{
+    background-color: blueviolet;
+    color: aliceblue;
+    width: 310px;
+    height: auto;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+}
+
+
+
+.tapa4{
+    background-color: aqua;
+    position: absolute;
+    height: 505px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    animation: abrir-tapa 3s ease-in-out both;
+    animation-play-state: paused;
+
+}
+
+
+.btn-abrir4{
+    padding: 0 3rem;
+    background-color: rgba(224, 9, 9, 0);
+    border: 0em;
+    height: 100px;
+    width: 310px;
+    color: rgb(118, 0, 0);
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: titilar 2s ease-in-out infinite;
+}
+
+
+.resaltar{
+    color: rgb(0, 174, 255);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p{
+    text-align: center;
+    padding: 0.5rem 2.5rem;
+
+}
+
+.mi-aporte p:last-child{
+    font-style: italic;
+    color: red;
+    margin-bottom: 0;
+    background-color: rgb(2, 19, 33);
+}
+
+.ventajas{
+    color: yellow;
+}
+.ventajas-online li{
+    text-align: center;
+    
+}
+
+
+  .running{
+    animation-play-state: running;
+  }
